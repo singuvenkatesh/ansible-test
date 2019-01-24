@@ -1,24 +1,14 @@
 pipeline {
-  
-    
-     agent { label 'linux' }
+      
+     agent { 
+     	label 'linux' 
+     }
      
   stages {
-        
-    stage('executing playbook') {
-      
-	  steps {
-    
-    dir('/etc/ansible/'){ //do this in the deployment directory!
-            echo 'Deploying to test'
-            sh 'ansible-playbook -i hosts sandbox.yml -e \\"/etc/ansible/ansible.cfg\\" -vvvv'
-        }
-   
-	  
-	    }
-		
-  }		
-  
+          stage('executing playbook') {
+      	  sh """
+	  hostname
+	  """
     }
     
 }
