@@ -1,3 +1,4 @@
+def source = "/etc/ansible/"
 pipeline {
       
      agent { 
@@ -8,7 +9,8 @@ pipeline {
           stage('executing playbook') {
 	  steps {
       	  sh """
-	  hostname
+	  cd $source
+	  sudo ansible-playbook -i hosts sandbox.yml -vvv
 	  """
     }
 }
