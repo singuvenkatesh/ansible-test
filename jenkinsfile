@@ -6,10 +6,11 @@ pipeline {
      
   stages {
           stage('executing playbook') {
+	  steps {
       	  sh """
 	  hostname
 	  """
     }
 }
-
+  }
 }
